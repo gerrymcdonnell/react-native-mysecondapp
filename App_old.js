@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View,TextInput } from 'react-native';
 
-//import webview compionent
-import {WebView} from 'react-native';
-
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android: 'Double tap R on your keyboard to reload,\n' + 'Shake or press menu button for dev menu',
@@ -24,10 +21,18 @@ export default class App extends Component {
 
   render() {
     return (
-        <WebView
-        source={{uri: 'https://creativespark.ie'}}
-        style={{marginTop: 20}}
-      />
+      <View style={styles.container}>
+        <Text style={styles.welcome}>Hello GED Welcome to React Native!</Text>
+        <Text style={styles.instructions}>To get started, edit App.js</Text>
+        <Text style={styles.instructions}>{instructions}</Text>
+      
+        <TextInput 
+          style={{width:300,borderColor:"black",borderWidth:1}}
+          value={this.state.container}
+          onChangeText={this.placeBameChangedHandler}          
+        />
+
+      </View>
     );
   }
 }
