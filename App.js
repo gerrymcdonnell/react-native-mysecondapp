@@ -25,7 +25,7 @@ export default class App extends Component {
   render() {
     return (
         <WebView
-        source={{uri: 'https://creativespark.ie'}}
+        source={{uri: 'http://irishbloke.net'}}
         style={{marginTop: 20}}
       />
     );
