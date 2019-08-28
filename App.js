@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View,TextInput } from 'react-native';
+import { Platform, StyleSheet, Text, View,TouchableOpacity,TextInput } from 'react-native';
 
 //import webview compionent
 //import {WebView} from 'react-native';
@@ -33,6 +33,7 @@ export default class App extends Component {
         source={{ uri: 'http://irishbloke.net' }}
         
         />
+        <Footer />
       </View>
     );
   }
@@ -41,6 +42,20 @@ export default class App extends Component {
 const Header = () => (
   <View style={styles.header}>
     <Text style={styles.title}>App Header</Text>
+  </View>
+);
+
+const Footer = () => (
+  <View style={styles.footer}>
+    <TouchableOpacity>
+      <Text style={styles.icon}>⬅️</Text>
+    </TouchableOpacity>
+    <TouchableOpacity>
+      <Text style={styles.icon}>⭐️</Text>
+    </TouchableOpacity>
+    <TouchableOpacity>
+      <Text style={styles.icon}> ➡️</Text>
+    </TouchableOpacity>
   </View>
 );
 
@@ -55,5 +70,17 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center"
+  },
+  icon: {
+    color: "#fff",
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  footer: {
+    padding: 20,
+    flexDirection: "row",
+    justifyContent: "space-around",
+    backgroundColor: "#0c084c"
   }
 });
