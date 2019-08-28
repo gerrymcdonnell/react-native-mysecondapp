@@ -10,7 +10,8 @@ import { Platform,
   View,
   TouchableOpacity,
   TextInput,
-  ActivityIndicator
+  ActivityIndicator,
+  ScrollView
  } from 'react-native';
 
 //import webview component
@@ -39,6 +40,9 @@ export default class App extends Component {
         <Header loading={this.state.loading} />
         <WebView
           source={{ uri: homeURL.src2}}
+          javaScriptEnabled={true}
+          domStorageEnabled={true}
+          startInLoadingState={true}
           ref={this.state.WEBVIEW_REF}
           onLoadStart={() => this.setState({ loading: true })}
           onLoadEnd={() => this.setState({ loading: false })}
