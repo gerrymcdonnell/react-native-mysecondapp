@@ -4,7 +4,7 @@ import { Platform, StyleSheet, Text, View,TextInput } from 'react-native';
 //import webview compionent
 //import {WebView} from 'react-native';
 
-//new version
+//new version of webview component
 import { WebView } from 'react-native-webview';
 
 const instructions = Platform.select({
@@ -27,29 +27,33 @@ export default class App extends Component {
 
   render() {
     return (
+      <View style={{ flex: 1 }}>
+      <Header />
         <WebView
-        source={{uri: 'http://wwww.irishbloke.net'}}
-        style={{marginTop: 20}}
-      />
+        source={{ uri: 'http://irishbloke.net' }}
+        
+        />
+      </View>
     );
   }
 }
 
+const Header = () => (
+  <View style={styles.header}>
+    <Text style={styles.title}>App Header</Text>
+  </View>
+);
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+  header: {
+    paddingTop: 40,
+    paddingBottom: 10,
+    backgroundColor: "#0c084c"
   },
-  welcome: {
+  title: {
+    color: "#fff",
     fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    fontWeight: "bold",
+    textAlign: "center"
+  }
 });
