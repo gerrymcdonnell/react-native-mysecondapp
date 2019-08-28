@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View,TouchableOpacity,TextInput } from 'react-native';
 
-//import webview compionent
-//import {WebView} from 'react-native';
+//import webview component
+import {WebView} from 'react-native';
 
 //new version of webview component
-import { WebView } from 'react-native-webview';
+//import { WebView } from 'react-native-webview';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -14,9 +14,15 @@ const instructions = Platform.select({
 
 export default class App extends Component {
 
-  state={
-    placeName:''
-  }
+  state = {
+    WEBVIEW_REF: "weViewRef"
+  };
+  goBack = () => {
+    this.refs[this.state.WEBVIEW_REF].goBack();
+  };
+  goForward = () => {
+    this.refs[this.state.WEBVIEW_REF].goForward();
+  };
 
   
   placeBameChangedHandler=val=>{
@@ -28,12 +34,25 @@ export default class App extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-      <Header />
+        <Header />
         <WebView
-        source={{ uri: 'http://irishbloke.net' }}
-        
+          source={{ uri: "http://irishbloke.net" }}
+          ref={this.state.WEBVIEW_REF}
         />
-        <Footer />
+        <View style={styles.footer}>
+          <TouchableOpacity
+            onPress={() => this.goBack()}
+            disabled={this.state.canGoBack}
+          >
+            <Text style={styles.icon}>⬅️</Text>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Text style={styles.icon}>⭐️</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.goForward()}>
+            <Text style={styles.icon}> ➡️</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
