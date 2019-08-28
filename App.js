@@ -38,15 +38,18 @@ export default class App extends Component {
     return (
       <View style={{ flex: 1 }}>
         <Header loading={this.state.loading} />
-        <WebView
-          source={{ uri: homeURL.src2}}
+        
+        <WebView style={styles.webView}
+          source={{uri: 'http://www.irishbloke.net'}}
           javaScriptEnabled={true}
           domStorageEnabled={true}
           startInLoadingState={true}
           ref={this.state.WEBVIEW_REF}
           onLoadStart={() => this.setState({ loading: true })}
           onLoadEnd={() => this.setState({ loading: false })}
-        />
+          >
+        </WebView>
+
         <View style={styles.footer}>
           <TouchableOpacity
             onPress={() => this.goBack()}
@@ -55,7 +58,7 @@ export default class App extends Component {
             <Text style={styles.icon}>⬅️</Text>
           </TouchableOpacity>
           <TouchableOpacity>
-            <Text style={styles.icon}>⭐️</Text>
+            <Text style={styles.icon}>Home</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.goForward()}>
             <Text style={styles.icon}> ➡️</Text>
