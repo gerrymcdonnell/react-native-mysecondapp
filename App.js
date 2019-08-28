@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View,TextInput } from 'react-native';
 
 //import webview compionent
-import {WebView} from 'react-native';
+//import {WebView} from 'react-native';
+
+//new version
+import { WebView } from 'react-native-webview';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -25,7 +28,7 @@ export default class App extends Component {
   render() {
     return (
         <WebView
-        source={{uri: 'http://irishbloke.net'}}
+        source={{uri: 'http://wwww.irishbloke.net'}}
         style={{marginTop: 20}}
       />
     );
