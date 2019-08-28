@@ -1,5 +1,17 @@
+export const homeURL = {
+  src1:'http://www.google.com',
+  src2:'http://irishbloke.net'
+  };
+
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View,TouchableOpacity,TextInput } from 'react-native';
+import { Platform, 
+  StyleSheet, 
+  Text, 
+  View,
+  TouchableOpacity,
+  TextInput,
+  ActivityIndicator
+ } from 'react-native';
 
 //import webview component
 import {WebView} from 'react-native';
@@ -7,10 +19,6 @@ import {WebView} from 'react-native';
 //new version of webview component
 //import { WebView } from 'react-native-webview';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' + 'Shake or press menu button for dev menu',
-});
 
 export default class App extends Component {
 
@@ -24,20 +32,16 @@ export default class App extends Component {
     this.refs[this.state.WEBVIEW_REF].goForward();
   };
 
-  
-  placeBameChangedHandler=val=>{
-    this.setState({
-      placeName:val
-    })
-  }
-
+    
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <Header />
+        <Header loading={this.state.loading} />
         <WebView
-          source={{ uri: "http://irishbloke.net" }}
+          source={{ uri: homeURL.src2}}
           ref={this.state.WEBVIEW_REF}
+          onLoadStart={() => this.setState({ loading: true })}
+          onLoadEnd={() => this.setState({ loading: false })}
         />
         <View style={styles.footer}>
           <TouchableOpacity
@@ -58,13 +62,14 @@ export default class App extends Component {
   }
 }
 
-const Header = () => (
+const Header = ({ loading }) => (
   <View style={styles.header}>
-    <Text style={styles.title}>App Header</Text>
+    <Text style={styles.title}>Header</Text>
+    {loading ? <ActivityIndicator color="blue" /> : null}
   </View>
 );
 
-const Footer = () => (
+const Footer = context => (
   <View style={styles.footer}>
     <TouchableOpacity>
       <Text style={styles.icon}>⬅️</Text>
@@ -77,7 +82,6 @@ const Footer = () => (
     </TouchableOpacity>
   </View>
 );
-
 const styles = StyleSheet.create({
   header: {
     paddingTop: 40,
