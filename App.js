@@ -24,7 +24,8 @@ import {WebView} from 'react-native';
 export default class App extends Component {
 
   state = {
-    WEBVIEW_REF: "weViewRef"
+    WEBVIEW_REF: "weViewRef",
+    homeURL:'http://news.irishbloke.net'
   };
   goBack = () => {
     this.refs[this.state.WEBVIEW_REF].goBack();
@@ -33,7 +34,9 @@ export default class App extends Component {
     this.refs[this.state.WEBVIEW_REF].goForward();
   };
   goHome = () => {
-    this.refs[this.state.WEBVIEW_REF].goHome();
+    //force the home url
+    //this.webView.uri=this.state.homeURL;
+    this.refs[this.state.WEBVIEW_REF].uri=this.state.homeURL;
   };
 
     
@@ -43,7 +46,7 @@ export default class App extends Component {
         <Header loading={this.state.loading} />
         
         <WebView style={styles.webView}
-          source={{uri: 'http://news.irishbloke.net'}}
+          source={{uri: this.state.homeURL}}
           /* javaScriptEnabled={true}
           domStorageEnabled={true}
           startInLoadingState={true} */
