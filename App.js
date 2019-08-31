@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   footer: {
-    padding: 20,
+    padding: 10,
     flexDirection: "row",
     justifyContent: "space-around",
     backgroundColor: "#8dc63f"
