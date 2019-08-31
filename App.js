@@ -15,10 +15,10 @@ import { Platform,
  } from 'react-native';
 
 //import webview component
-import {WebView} from 'react-native';
+//import {WebView} from 'react-native';
 
 //new version of webview component
-//import { WebView } from 'react-native-webview';
+import { WebView } from 'react-native-webview';
 
 
 export default class App extends Component {
