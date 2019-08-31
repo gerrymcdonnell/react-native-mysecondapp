@@ -32,6 +32,9 @@ export default class App extends Component {
   goForward = () => {
     this.refs[this.state.WEBVIEW_REF].goForward();
   };
+  goHome = () => {
+    this.refs[this.state.WEBVIEW_REF].goHome();
+  };
 
     
   render() {
@@ -41,9 +44,9 @@ export default class App extends Component {
         
         <WebView style={styles.webView}
           source={{uri: 'http://news.irishbloke.net'}}
-          javaScriptEnabled={true}
+          /* javaScriptEnabled={true}
           domStorageEnabled={true}
-          startInLoadingState={true}
+          startInLoadingState={true} */
           ref={this.state.WEBVIEW_REF}
           onLoadStart={() => this.setState({ loading: true })}
           onLoadEnd={() => this.setState({ loading: false })}
@@ -57,7 +60,7 @@ export default class App extends Component {
           >
             <Text style={styles.icon}>⬅️</Text>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => this.goHome()}>
             <Text style={styles.icon}>Home</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.goForward()}>
