@@ -40,7 +40,7 @@ export default class App extends Component {
         <Header loading={this.state.loading} />
         
         <WebView style={styles.webView}
-          source={{uri: 'http://www.irishbloke.net'}}
+          source={{uri: 'http://news.irishbloke.net'}}
           javaScriptEnabled={true}
           domStorageEnabled={true}
           startInLoadingState={true}
@@ -71,7 +71,7 @@ export default class App extends Component {
 
 const Header = ({ loading }) => (
   <View style={styles.header}>
-    <Text style={styles.title}>Header</Text>
+    <Text style={styles.title}>App Header</Text>
     {loading ? <ActivityIndicator color="blue" /> : null}
   </View>
 );
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   header: {
     paddingTop: 40,
     paddingBottom: 10,
-    backgroundColor: "#0c084c"
+    backgroundColor: "#8dc63f"
   },
   title: {
     color: "#fff",
@@ -111,6 +111,6 @@ const styles = StyleSheet.create({
     padding: 20,
     flexDirection: "row",
     justifyContent: "space-around",
-    backgroundColor: "#0c084c"
+    backgroundColor: "#8dc63f"
   }
 });
