@@ -2,9 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 1800,
+  "packagerPid": 9144,
   "expoServerNgrokUrl": "https://r4-brn.anonymous.mysecondapp.exp.direct",
   "packagerNgrokUrl": "https://packager.r4-brn.anonymous.mysecondapp.exp.direct",
-  "ngrokPid": 12256,
+  "ngrokPid": 6180,
   "webpackServerPort": 19006
 }

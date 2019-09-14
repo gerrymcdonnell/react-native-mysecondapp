@@ -1,8 +1,3 @@
-export const homeURL = {
-  src1:'http://www.google.com',
-  src2:'http://irishbloke.net'
-  };
-
 import React, { Component } from 'react';
 import { Platform, 
   StyleSheet, 
@@ -15,11 +10,10 @@ import { Platform,
  } from 'react-native';
 
 //import webview component
-//import {WebView} from 'react-native';
+import {WebView} from 'react-native';
 
 //new version of webview component
-import { WebView } from 'react-native-webview';
-
+//import { WebView } from 'react-native-webview';
 
 export default class App extends Component {
 
@@ -34,9 +28,9 @@ export default class App extends Component {
     this.refs[this.state.WEBVIEW_REF].goForward();
   };
   goHome = () => {
-    //force the home url
+    //force the home url-doestn work
     //this.webView.uri=this.state.homeURL;
-    this.refs[this.state.WEBVIEW_REF].uri=this.state.homeURL;
+    //this.refs[this.state.WEBVIEW_REF].uri=this.state.homeURL;
   };
 
     
@@ -47,9 +41,9 @@ export default class App extends Component {
         
         <WebView style={styles.webView}
           source={{uri: this.state.homeURL}}
-          /* javaScriptEnabled={true}
+           javaScriptEnabled={true}
           domStorageEnabled={true}
-          startInLoadingState={true} */
+          startInLoadingState={true}
           ref={this.state.WEBVIEW_REF}
           onLoadStart={() => this.setState({ loading: true })}
           onLoadEnd={() => this.setState({ loading: false })}
