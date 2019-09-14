@@ -19,7 +19,8 @@ export default class App extends Component {
 
   state = {
     WEBVIEW_REF: "weViewRef",
-    homeURL:'http://news.irishbloke.net'
+    homeURL:'http://news.irishbloke.net',
+    cspark:"http://www.creativespark.ie"
   };
   goBack = () => {
     this.refs[this.state.WEBVIEW_REF].goBack();
@@ -40,10 +41,10 @@ export default class App extends Component {
         <Header loading={this.state.loading} />
         
         <WebView style={styles.webView}
-          source={{uri: this.state.homeURL}}
-           javaScriptEnabled={true}
+          source={{uri: this.state.cspark}}
+           /*javaScriptEnabled={true}
           domStorageEnabled={true}
-          startInLoadingState={true}
+          startInLoadingState={true}*/
           ref={this.state.WEBVIEW_REF}
           onLoadStart={() => this.setState({ loading: true })}
           onLoadEnd={() => this.setState({ loading: false })}
